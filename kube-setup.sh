@@ -44,7 +44,7 @@ then
 	# install KVM software
 	sudo dnf install @virtualization -y
 	sudo systemctl enable --now libvirtd
-	sudo usermod -aG libvirt `id -un`
+	sudo usermod -aG libvirt vagrant
 fi
 
 ### Ubuntu config
