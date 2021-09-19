@@ -74,7 +74,7 @@ sudo mv minikube /usr/local/bin
 #Added minikube to the autorun
 touch /etc/profile.d/minikube.sh
 echo \#\!\/bin\/sh >> /etc/profile.d/minikube.sh
-echo runuser -l vagrant -c \'minikube start --memory 4096 --vm-driver=kvm2\' >> /etc/profile.d/minikube.sh
+echo minikube start --memory 4096 --vm-driver=kvm2 >> /etc/profile.d/minikube.sh
 chmod +x /etc/profile.d/minikube.sh
 
 # start minikube
