@@ -77,6 +77,12 @@ echo \#\!\/bin\/sh >> /etc/profile.d/minikube.sh
 echo minikube start --memory 4096 --vm-driver=kvm2 >> /etc/profile.d/minikube.sh
 chmod +x /etc/profile.d/minikube.sh
 
+#Kubect completion
+source /usr/share/bash-completion/bash_completion
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+kubectl completion bash >/etc/bash_completion.d/kubectl
+
+
 # start minikube
 runuser -l vagrant -c 'minikube start --memory 4096 --vm-driver=kvm2'
 
