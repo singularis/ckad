@@ -82,6 +82,8 @@ source /usr/share/bash-completion/bash_completion
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 kubectl completion bash >/etc/bash_completion.d/kubectl
 
+bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+
 
 # start minikube
 runuser -l vagrant -c 'minikube start --memory 4096 --vm-driver=kvm2'
