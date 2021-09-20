@@ -82,8 +82,12 @@ source /usr/share/bash-completion/bash_completion
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 kubectl completion bash >/etc/bash_completion.d/kubectl
 
+#Install oh-my-bash
 bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
+#vim configure
+echo "autocmd FileType yaml setlocal ai ts=2 sw=2 et" >> ~/.vimrc
+echo ":set number" >> ~/.vimrc
 
 # start minikube
 runuser -l vagrant -c 'minikube start --memory 4096 --vm-driver=kvm2'
