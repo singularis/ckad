@@ -90,8 +90,15 @@ echo "autocmd FileType yaml setlocal ai ts=2 sw=2 et" >> ~/.vimrc
 echo ":set number" >> ~/.vimrc
 
 sudo chown -R vagrant:vagrant ckad/
+
+#Docker config
 sudo groupadd docker
 sudo usermod -aG docker vagrant
+mkdir /sys/fs/cgroup/systemd
+mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+sudo systemctl enable docker.service
+sudo systemctl enable docker.socket
+
 
 # start minikube
 runuser -l vagrant -c 'minikube start --memory 4096 --vm-driver=kvm2'
